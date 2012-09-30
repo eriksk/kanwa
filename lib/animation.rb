@@ -15,8 +15,8 @@ module Kanwa
 		end
 
 		def next_frame
-			if @current_frame + 1 > @key_frames.size -1
-				@key_frames.first
+			if @current_frame + 1 > @key_frames.size - 1
+				@key_frames[0]
 			else
 				@key_frames[@current_frame + 1]
 			end
@@ -27,7 +27,7 @@ module Kanwa
 			if @current > @current_frame
 				@current = 0.0
 				@current_frame += 1
-				if @current_frame > @key_frames.size -1
+				if @current_frame > @key_frames.size - 1
 					@current_frame = 0
 				end
 			end
