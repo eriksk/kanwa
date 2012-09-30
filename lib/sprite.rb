@@ -1,10 +1,10 @@
 module Kanwa	
-	class Sprite < Gosu::Image
+	class Sprite
 		
-		attr_accessor :mode, :color, :flipped_x, :flipped_y, :x, :y, :z, :rotation, :origin_x, :origin_y, :scale_x, :scale_y
+		attr_accessor :image, :mode, :color, :flipped_x, :flipped_y, :x, :y, :z, :rotation, :origin_x, :origin_y, :scale_x, :scale_y
 
-		def initialize(window, asset_path, tileable)
-			super(window, asset_path, tileable)
+		def initialize(image)
+			@image = image
 			@x = 0.0
 			@y = 0.0
 			@z = 0
@@ -16,10 +16,11 @@ module Kanwa
 			@scale_y = 1.0
 			@mode = :default
 			@color = 0xffffffff
+			@rotation = 0.0
 		end
 		
 		def draw
-			draw_rot(@x, @y, @z, @rotation, @origin_x, @origin_y, @scale_x, @scale_y, @color, @mode)
+			@image.draw_rot(@x, @y, @z, @rotation, @origin_x, @origin_y, @scale_x, @scale_y, @color, @mode)
 		end	
 	end
 end

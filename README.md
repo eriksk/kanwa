@@ -9,3 +9,5 @@
 
 ## Done
 * Basic animations
+* Easings
+* Sample animation

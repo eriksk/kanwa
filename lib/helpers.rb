@@ -15,7 +15,7 @@ module Kanwa
 		result = 0.0
 		if weight == 0.0
 			result = v1
-		elseif weight == 1.0
+		elsif weight == 1.0
 			result = v2
 		else
 			result = (2 * v1 - 2 * v2 + t2 + t1) * sCubed + (3 * v2 - 3 * v1 - 2 * t1 - t2) * sSquared + t1 * weight + v1

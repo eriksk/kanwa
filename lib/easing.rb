@@ -1,22 +1,19 @@
 module Kanwa	
 	class Easing
 
-		def name
-			"Linear"
+		attr_accessor :type
+
+		def initialize type = :linear
+			@type = type
 		end
 
 		def lerp(x, y, weight)
-			x + (y - x) * weight
-		end	
-	end
-
-	class EasingSmooth < Easing
-		def name
-			"Smooth"
-		end
-		
-		def lerp(x, y, weight)
-			qlerp(x, y, weight)
+			case @type
+				when :linear
+					Kanwa::lerp(x, y, weight)
+				when :smooth 
+					Kanwa::qlerp(x, y, weight)
+			end
 		end	
 	end
 end

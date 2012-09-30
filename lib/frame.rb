@@ -6,10 +6,10 @@ module Kanwa
 			@frame_parts = frame_parts
 		end
 
-		def draw progress, next_frame, easing
+		def draw progress, next_frame, easing, offset_x, offset_y
 			@frame_parts.each_with_index do |fp, i|
 				if next_frame.frame_parts[i]
-					fp.draw(progress, next_frame.frame_parts[i], easing)
+					fp.draw(progress, next_frame.frame_parts[i], easing, offset_x, offset_y)
 				end
 			end
 		end

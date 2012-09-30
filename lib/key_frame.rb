@@ -9,8 +9,8 @@ module Kanwa
 			@easing = easing
 		end
 
-		def draw current, next_frame, easing
-			@frame.draw(current / duration, next_frame)	
+		def draw current, next_frame, offset_x, offset_y
+			@frame.draw(current / duration, next_frame.frame, @easing, offset_x, offset_y)	
 		end	
 	end
 end

@@ -1,11 +1,12 @@
 module Kanwa	
 	class Animation
 
-		attr_accessor :frames, :key_frames, :current_frame, :current
+		attr_accessor :frames, :key_frames, :current_frame, :current, :x, :y
 
 		def initialize(frames, key_frames)
 			@frames = frames
 			@key_frames = key_frames
+			@x, @y = 0, 0
 			reset
 		end
 
@@ -24,7 +25,7 @@ module Kanwa
 
 		def update dt
 			@current += dt
-			if @current > @current_frame
+			if @current > @key_frames[@current_frame].duration
 				@current = 0.0
 				@current_frame += 1
 				if @current_frame > @key_frames.size - 1
@@ -35,7 +36,7 @@ module Kanwa
 
 		def draw
 			if @current_frame < @key_frames.size
-				@key_frames[@current_frame].draw current, next_frame
+				@key_frames[@current_frame].draw current, next_frame, @x, @y
 			end
 		end	
 	end
